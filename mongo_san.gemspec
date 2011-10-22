@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.summary     = %q{Allow easy backup and restore of mongo databases for heroku hosted apps.}
   s.description = %q{Allow easy backup and restore of mongo databases for heroku hosted apps.}
 
-  s.rubyforge_project = "mongo_sans"
+  #s.rubyforge_project = "mongo_sans"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
