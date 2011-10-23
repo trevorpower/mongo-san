@@ -19,7 +19,7 @@ namespace :heroku do
     end
 
     desc "Restore the mongo db content from a dump"
-    task :restore, [:alias]  => :environment do
+    task :restore, [:alias]  => :environment do |t, args|
       each_heroku_app do |name, app|
         puts "#{name}:"
         uri = URI.parse(heroku_env(app)["MONGOHQ_URL"])
