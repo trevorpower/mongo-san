@@ -19,12 +19,12 @@ namespace :heroku do
     end
 
     desc "Restore the mongo db content from a dump"
-    task :restore => :environment do
+    task :restore, [:alias]  => :environment do
       each_heroku_app do |name, app|
         puts "#{name}:"
         uri = URI.parse(heroku_env(app)["MONGOHQ_URL"])
         db = uri.path.delete '/'
-        puts `mongorestore -h #{uri.host}:#{uri.port} -u #{uri.user} -p #{uri.password} -d #{db} dump/#{name}`
+        puts `mongorestore -h #{uri.host}:#{uri.port} -u #{uri.user} -p #{uri.password} -d #{db} dump/#{args[:alias] || name}`
       end
     end
   end
